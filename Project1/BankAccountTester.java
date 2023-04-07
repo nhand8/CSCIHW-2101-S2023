@@ -18,7 +18,7 @@ public class BankAccountTester {
         System.out.println(dylanChecking.getBalance());
         
         dylanChecking.deposit(50000);
-        dylanChecking.calcInterest(dylanChecking.getBalance(), 10, 0.40, 12);
+        dylanChecking.calcCompoundInterest(dylanChecking.getBalance(), 10, 0.40, 12);
 
 
     }

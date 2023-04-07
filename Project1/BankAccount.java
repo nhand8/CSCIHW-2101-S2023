@@ -50,40 +50,44 @@ public class BankAccount {
 
     public static int menu() {
         
-        int selection;
-        Scanner input = new Scanner(System.in);
+        int selection; try
+        (Scanner input = new Scanner(System.in)) {
+            System.out.println("Please select an option:");
+            System.out.println("------------------------\n");
+            System.out.println("1: Get Balance");
+            System.out.println("2: Deposit");
+            System.out.println("3: Withdraw");
+            System.out.println("4: Transfer");
+            System.out.println("5: Set up Savings Account");
+            System.out.println("0: Quit");
+            System.out.println("------------------------\n");
 
-        /*******************************************/
-        System.out.println("Please select an option:");
-        System.out.println("------------------------\n");
-        System.out.println("1: Get Balance");
-        System.out.println("2: Deposit");
-        System.out.println("3: Withdraw");
-        System.out.println("4: Transfer");
-        System.out.println("5: Set up Savings Account");
-        System.out.println("0: Quit");
-        System.out.println("------------------------\n");
-
-        selection = input.nextInt();
+            selection = input.nextInt();
+        }
 
         return selection;
     }
     
     public void overdraft(int withdraw, BankAccount Bank){
-        Scanner input = new Scanner(System.in);
-        if(withdraw > Bank.getBalance()){
-            System.out.println("You're withdrawing more than what's currently available in your account. You will be charged with an overdraft fee of $35 if you continue with this transaction. Will you continue? Y or N.");
-            String answer = input.nextLine();
-            if (answer.equals("Y")){
-                Bank.withdraw(withdraw);
-                Bank.withdraw(35);
+        try (Scanner input = new Scanner(System.in)) {
+            {
+                {
+                    if(withdraw > Bank.getBalance()){
+                        System.out.println("You're withdrawing more than what's currently available in your account. You will be charged with an overdraft fee of $35 if you continue with this transaction. Will you continue? Y or N.");
+                        String answer = input.nextLine();
+                        if (answer.equals("Y")){
+                            Bank.withdraw(withdraw);
+                            Bank.withdraw(35);
+                        }
+                        else if (answer.equals("N")){
+                            System.out.println("Have a great day!");
+                        }
+                    }
+                    else{
+                        Bank.withdraw(withdraw);
+                    } 
+                }
             }
-            else if (answer.equals("N")){
-                System.out.println("Have a great day!");
-            }
-        }
-        else{
-            Bank.withdraw(withdraw);
         }
     }
 
@@ -100,27 +104,28 @@ public class BankAccount {
     }
 
     public void savingsAccount(BankAccount Bank){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Would you like to set up a savings account? Y or N?");
-        String answer = input.nextLine();
-            if (answer.equals("Y")){
-                    if(Bank.getBalance() > 1000){
-                    System.out.println("Would you like a compound or flat interest rate? The compound interest rate is set at 0.0001%. The flat interest rate is set at .0001%. Flat or compound?");
-                    String answer1 = input.nextLine();
-                        if(answer1.equals("Flat")){
-                            calcSimpleInterest(1000, 0.001, 10);
-                        }
-                        else if(answer1.equals("Compound")){
-                            calcCompoundInterest(1000, 10, 0.00001, 4);
-                        }
-                        else{
-                            System.out.println("You don't have enough money");
-                        }
-            }
-            else if(answer.equals("N")){
-                System.out.println("Have a great day!");
-    }
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.println("Would you like to set up a savings account? Y or N?");
+            String answer = input.nextLine();
+                if (answer.equals("Y")){
+                        if(Bank.getBalance() > 1000){
+                        System.out.println("Would you like a compound or flat interest rate? The compound interest rate is set at 0.0001%. The flat interest rate is set at .0001%. Flat or compound?");
+                        String answer1 = input.nextLine();
+                            if(answer1.equals("Flat")){
+                                calcSimpleInterest(1000, 0.001, 10);
+                            }
+                            else if(answer1.equals("Compound")){
+                                calcCompoundInterest(1000, 10, 0.00001, 4);
+                            }
+                            else{
+                                System.out.println("You don't have enough money");
+                            }
+                }
+                else if(answer.equals("N")){
+                    System.out.println("Have a great day!");
+   }
 
-            }
+                }
+        }
         }
     }
