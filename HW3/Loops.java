@@ -17,8 +17,20 @@ public class Loops {
     //eeeeat -> false
 
     public static boolean loopE(String str){
-        return true; // <- this should be changed 
-    }
+        int numberOfE = 0;
+        for(int i = 0; i < str.length(); i++){
+            if (str.charAt(i) == 'e') 
+            numberOfE++;
+        }
+            if(numberOfE >= 1 && numberOfE <= 3){
+                System.out.println("True");
+                return true;
+            }
+            else{
+                System.out.println("False");
+                return false;
+            }
+        }
 
     //Given a String str and int n return a larger string
     //that is n copies of the original string 
@@ -26,7 +38,10 @@ public class Loops {
     //stringTimes("Code",2) ->"CodeCode"
     //stringTimes("Code",4) ->"CodeCodeCodeCode"
     public static String stringTimes(String str, int n) {
-        return null; // <- this should be changed 
+        for (int i = 0; i < n; i++){
+            System.out.print(str);
+        }
+        return str;
     } 
 
     //Create a method Given a string, return the string where all of the "z"
@@ -66,11 +81,29 @@ public class Loops {
     // Number: 0
     // TOTAL ENDED --- The total is 27.
     public static void sums(){
+        int n = 0;
+        int sum = 0;
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("I will add up the numbers you give me ");
+            System.out.print("Number: ");
+            n = scanner.nextInt();
+            System.out.println("The total so far is " + n);
+            sum = n;
+            while(n != 0){
+                n = scanner.nextInt();
+                sum = n + sum;
+                System.out.println("The total so far is " + sum);
+            }
+        }
+        System.out.println("Total Ended -- the total is " + sum);
     }
 
     public static void main(String[] args) {
-        // Add code to help test your methods here
+        loopE("eeeel");
+        System.out.println(stringTimes("Hee", 5));
+        sums();
 
-    }
-    
+    } 
 }
+    
+
