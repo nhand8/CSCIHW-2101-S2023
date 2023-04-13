@@ -82,22 +82,21 @@ public class Loops {
     // TOTAL ENDED --- The total is 27.
     public static void sums(){
         int n = 0;
+        int temp = 0;
         int sum = 0;
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("I will add up the numbers you give me ");
-            System.out.print("Number: ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("I will add up the numbers you give me ");
+        System.out.print("Number: ");
+        n = scanner.nextInt();
+        System.out.println("The total so far is " + n);
+        sum = n;
+        while(n != 0){
             n = scanner.nextInt();
-            System.out.println("The total so far is " + n);
-            sum = n;
-            while(n != 0){
-                n = scanner.nextInt();
-                sum = n + sum;
-                System.out.println("The total so far is " + sum);
-            }
+            sum = n + sum;
+            System.out.println("The total so far is " + sum);
         }
-        System.out.println("Total Ended -- the total is " + sum);
+           System.out.println("Total Ended -- the total is " + sum);
     }
-
     public static void main(String[] args) {
         loopE("eeeel");
         System.out.println(stringTimes("Hee", 5));
