@@ -1,4 +1,6 @@
 package HW4;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Arrays {
 
@@ -22,10 +24,23 @@ public class Arrays {
     // Number: 0
     // Total: 22
     // Array: {12,2,3,4,1,0}
+    /**
+     * 
+     */
     public static void Arraysums(){
+        Scanner scanner = new Scanner(System.in);
+        int[] Array = new int[10];
 
-    }
-
+        System.out.println("I will add up the numbers you give me");
+        for(int i = 0; i < Array.length; i++){
+                int sum = 0;
+                Array[i] = scanner.nextInt(i);
+                System.out.println("Number: " + Array[i]);
+                sum = Array[i] + sum;
+                System.out.println("The total so far is" + sum);
+            }
+            System.out.println(Arrays.toString(Array));
+        }
     // Create a method that will brute force a password EX.
     // bruteForce("ZZZZ")
     // The program should then guess each char of the string and compare it to see if it is equal
@@ -46,6 +61,23 @@ public class Arrays {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
         '!', '@', '#', '$', '%', '^', '&', '*', '(', ')','<','>','/','?'};
     
+        char[] cha = password.toCharArray();
+        int index = 0;
+        char currentChar = password.charAt(index);
+        while (true) {
+            for (char val : alphabet) {
+                if (currentChar == val) {
+                    answer = answer + val;
+                }
+            }
+            if (index < (password.length()-1)) {
+                index++;
+            }
+            currentChar = password.charAt(index);
+            if (answer.length() == password.length()) {
+                break;
+            }
+        }
         return answer; 
     }
 
@@ -58,12 +90,19 @@ public class Arrays {
     // Hint 2: 2 nested For loops should be all thats needed for the swapping logic
     public static int[] sorter(int[] nums){
         int [] sortedArray = new int[nums.length];
+        int [] tempArray = sortedArray;
+        int smallestNumber = 0;
+        for(int i = 0; i < sortedArray.length; i++){
+            for(int s = i + 1; s < sortedArray.length; s++){
+                if(tempArray[i] > sortedArray[s]){
+                    smallestNumber = tempArray[i];
+                    tempArray[i] = sortedArray[s];
+                    sortedArray[s] =smallestNumber;
+                }
+            }
+        }
         return sortedArray;
     }
-
-
-
-
     public static void main(String[] args) {
         // Tester main method for your methods
         System.out.println("Hello World!");
