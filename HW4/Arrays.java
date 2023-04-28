@@ -40,6 +40,7 @@ public class Arrays {
                 System.out.println("The total so far is" + sum);
             }
             System.out.println(Arrays.toString(Array));
+            scanner.close();
         }
     // Create a method that will brute force a password EX.
     // bruteForce("ZZZZ")
