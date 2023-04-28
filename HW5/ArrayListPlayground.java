@@ -15,10 +15,14 @@ public class ArrayListPlayground {
     // d) set the value of the 13th element to 15
     // d) set the value of the 2nd element to 6
     // d) Set the value of the 9th element of the array nums to the sum of the 13th and 2nd elements of the array nums.
-    
-
-
-         
+    int[] Array = new int[15];
+        System.out.println(Array[9]);
+        Array[4] = 35;
+        Array[12] = 15;
+        Array[1] = 6;
+        Array[8] = Array[12] + Array[1];
+        Sums();
+    }
     // Question 2
     // a) create an arrayList of Strings that contain each day of the week.(starting on monday)
     // b) output each of the days of the week
