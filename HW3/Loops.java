@@ -52,7 +52,21 @@ public class Loops {
     //stringZ("nozthaznks") -> "nothanks"
     //stringZ("xksiazdjaasldzsajzasdz") -> "xksiadjaasldsajasdz"
     public static String stringZ(String str){
-        return null; // <- this should be changed 
+        int length = str.length();
+        char[] strChars = str.toCharArray();
+
+        char c = strChars[0];
+        String str2 = Character.toString(c);
+
+        for (int i = 1; i < length - 1; i++) {
+            if (strChars[i] != 'z') {
+                str2 += strChars[i];
+            }
+        }
+
+        str2 += strChars[length - 1];
+
+        return str2;
     }
 
     //Create a method that contains a while loop that allows for
